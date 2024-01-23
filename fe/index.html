@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CORS</title>
+</head>
+
+<body>
+  <div>
+    <spanp>Ini buat di local --------</spanp>
+    <button id="send-request-btn">Send request</button>
+    <button id="check-cookie-btn">Check cookie</button>
+    <span>------------</span>
+  </div>
+  <div>
+    <spanp>Ini buat hostingan --------</spanp>
+    <button id="send-request-btn-hosting">Send request hosting</button>
+    <button id="check-cookie-btn-hosting">Check cookie hosting</button>
+    <span>------------</span>
+  </div>
+</body>
+<script>
+  const sendRequestBtn = document.querySelector('#send-request-btn');
+  sendRequestBtn.addEventListener('click', (e) => {
+    console.log('send request cookie (get cookie) ===')
+    fetch('http://localhost:3000/cookie', {
+      credentials: 'include'
+    });
+  })
+
+  const checkCookieBtn = document.querySelector('#check-cookie-btn');
+  checkCookieBtn.addEventListener('click', (e) => {
+    console.log('check cookie ====')
+    fetch('http://localhost:3000/check-cookie', {
+      credentials: 'include'
+    });
+  })
+
+  const sendRequestBtnHosting = document.querySelector('#send-request-btn-hosting');
+  sendRequestBtnHosting.addEventListener('click', (e) => {
+    console.log('send request cookie hosting (get cookie) ===')
+    fetch('http://be-test-cookie.hidayahapriliansyah.com/cookie', {
+      credentials: 'include'
+    });
+  })
+
+  const checkCookieBtnHosting = document.querySelector('#check-cookie-btn-hosting');
+  checkCookieBtnHosting.addEventListener('click', (e) => {
+    console.log('check cookie hosting ====')
+    fetch('http://be-test-cookie.hidayahapriliansyah.com/check-cookie', {
+      credentials: 'include'
+    });
+  })
+</script>
+
+</html>
